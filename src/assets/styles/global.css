@@ -1,0 +1,52 @@
+:root{
+    font-size: 60%;
+     --color-background: #05050F;
+     --Birches: #01F1E3;
+     --purple-blue: #5A5A89;
+     --blueish-black: #14142B;
+     --blue: #023AFF;
+     --color-gradient1: linear-gradient(#7517F8, #E323FF);
+     --color-gradient2: linear-gradient(#02A4FF, #7D40FF);
+     --color-gradient3: linear-gradient(#4DA1FF, #4DFFDF);
+     --color-yellow: #FFA63F;
+     --color-eletric-green: #5EFF5A;
+     --color-red: #FF2D2E;
+     --color-purple: #991BFA;
+     --color-birches: #01F1E3;
+     --color-black: #05050F;
+     --color-white: white;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+hmtl, body, #root, .App{
+  width: 100vw;
+  height: 100vh;
+}
+
+body{
+  background: var(--color-background);
+}
+
+.App {
+  text-align: center;
+  background-color: var(--color-background);
+    
+}
+
+h2{
+  font: 700 2rem Archivo;
+}
+
+h3{
+  font: 500 2.5rem Archivo;
+}
+
+small{
+  font: 500 1.3rem Archivo;
+}
+
+  
