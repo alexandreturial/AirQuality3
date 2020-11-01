@@ -1,14 +1,15 @@
 import React from 'react';
 
-
-import PieChartImg from '../../assets/images/pieChart.svg';
-import LineChartData from '../../assets/images/lineChartData.svg';
+import LineChart from '../LineChart/index';
+import PieChart from '../PieChart/index';
 
 import './styles.css';
 const BoxDataList: React.FC = () => {
   return (
     <div className="box-data">
-    <img src={PieChartImg} alt="pieChart"/>
+      <div className="box-chart">
+        <PieChart></PieChart>
+      </div>
     <div className="box-chart-legend">
       
       
@@ -21,19 +22,26 @@ const BoxDataList: React.FC = () => {
           <p>
             dado1
           </p>
-          <img src={LineChartData} alt="chart"/>
+          <div className="box-line-chart">
+            <LineChart></LineChart>
+          </div>
+          
         </li>
         <li>
           <p>
             dado2
           </p>
-          <img src={LineChartData} alt="chart"/>
+          <div className="box-line-chart">
+            <LineChart></LineChart>
+          </div>
         </li>
         <li>
           <p>
             dado3
           </p>
-          <img src={LineChartData} alt="chart"/>
+          <div className="box-line-chart">
+            <LineChart></LineChart>
+          </div>
         </li>
       </ul>
     </div>

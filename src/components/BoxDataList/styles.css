@@ -1,12 +1,29 @@
 .box-data{
     background-color: var(--blueish-black);
 
-    padding: 20px 60px;
+    padding: 0px 30px 10px;
     border-radius: 7px;
 
     box-shadow: 0 10px 10px -5px #000000ad;
 
     margin: 15px 0;
+}
+.box-chart{
+
+    display: flex;
+    flex: 1;
+    justify-content: center;
+
+    height: 100%;
+    width: 200px;
+
+}
+.box-line-chart{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+
+    height: 40px;
 }
 
 .box-chart-legend{
@@ -27,13 +44,17 @@
     color: var(--purple-blue);
 }
 
+.box-data-list{
+    margin-top: 20px;
+}
+
+
 .box-data-list li{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+    align-items: center;
 
-    margin-top: 20px;
     
     list-style-type:none;
     color: var(--color-white);
