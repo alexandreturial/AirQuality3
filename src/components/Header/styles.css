@@ -1,5 +1,4 @@
 .page-header{
-    width: 100vw;
     height: 8vh;
 
     background-color: var(--blueish-black);
@@ -37,16 +36,16 @@
     flex-direction: row;
 }
 
-.options li{
+.link{
     margin: 0 50px;
-
+    color: var(--purple-blue);
+    text-decoration: none;
 }
 
-.options li:hover{
+.link:hover{
     color: var(--color-white);
     transition: .3s;
-    cursor: pointer;
-    
+    cursor: pointer;   
 }
 
 

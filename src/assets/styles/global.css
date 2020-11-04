@@ -1,6 +1,7 @@
 :root{
     font-size: 60%;
      --color-background: #05050F;
+     --color-background-box:#1F1F4B;
      --Birches: #01F1E3;
      --purple-blue: #5A5A89;
      --blueish-black: #14142B;
@@ -23,8 +24,8 @@
 }
 
 hmtl, body, #root, .App{
-  width: 100vw;
   height: 100vh;
+  
 }
 
 body{

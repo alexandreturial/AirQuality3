@@ -1,8 +1,9 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import LogoImg from '../../assets/images/Logo.svg'
 
- import './styles.css';
+import './styles.css';
 
 const Header: React.FC = () => {
   return (
@@ -13,10 +14,21 @@ const Header: React.FC = () => {
         </div>
         <div className="header-content">
             <ul className="options">
-                <li>Statics</li>
-                <li>Overview</li>
-                <li>Dashboard</li>
-                <li>Analitics</li>
+                <li>
+                  <Link to="/" className="link">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/overview" className="link">
+                    Overview
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/analitics" className="link">
+                    Analitics
+                  </Link>
+                </li>
             </ul>
         </div>
     </header>
