@@ -2,21 +2,29 @@
     width: 100%;
     height: 70vh;
     
-    background-color: var(--blueish-black);
+    background-color: var(--color-background-box);
 
     padding: 10px 15px;
     border-radius: 7px;
 
     box-shadow: 0 10px 10px -5px #000000ad;
 
-    margin: 0px 0;
+    margin: 0px;
     
 }
 .main-box-chart{
     display: flex;
     flex: 1;
-    justify-content: center;
+    justify-content: space-between;
 
     
     height: 100%;
+}
+
+.level-risk{
+    width: 40%;
+}
+
+.Air-composition{
+    width: 60%;
 }

@@ -1,7 +1,7 @@
 .page-header{
     height: 8vh;
 
-    background-color: var(--blueish-black);
+    background-color: var(--color-background-box);
 
     display: flex;
     justify-content: space-between;

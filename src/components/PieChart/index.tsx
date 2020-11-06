@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import { PieChart, Pie, Sector, Cell } from 'recharts';
 
+
 const data = [
     { name: 'Group A', value: 400 },
     { name: 'Group B', value: 300 },
@@ -28,7 +29,11 @@ const renderActiveShape = (props: any) => {
 
     return (
         <g>
-            <text x={cx} y={cy} dy={8} fontSize={15} textAnchor="middle" fill="#FFF">{payload.name}</text>
+            <text x={cx} y={cy} dy={8} fontSize={15} textAnchor="middle" fill="#FFF">
+                
+                {payload.name}
+            </text>
+           
             <Sector
                 cx={cx}
                 cy={cy}
@@ -77,8 +82,11 @@ export default class Example extends PureComponent {
 
     render() {
         return (
+            <>
+             
+            
             <PieChart width={400} height={400} >
-
+                
                 <defs>
                     <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1.2">
                         <stop offset="15%" stopColor="#7517F8" stopOpacity={0.8} />
@@ -118,6 +126,7 @@ export default class Example extends PureComponent {
 
                 </Pie>
             </PieChart>
+            </>
         );
     }
 }
