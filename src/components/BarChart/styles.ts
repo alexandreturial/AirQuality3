@@ -1,10 +1,36 @@
 import styled, { keyframes } from 'styled-components';
 
-const animate = keyframes`
+
+interface IBarContainerProps{ 
+    value: number;
+    maxValue?: number;
+    RiskMarge?: number;
+}
+
+
+const handleColorType = (value:number, limit:number, RiskMarge:number) => {
+    if(value < (RiskMarge)){
+        return `var(--color-birches)`;
+    }else if(value >= (RiskMarge) && value < limit){
+        return `var(--color-yellow)`;
+    }else{
+        return `var(--color-red)`;
+    }
+};
+
+
+const animate = (y: number) =>  keyframes`
      0% { width: 0; }
-   100% { width: 50%; }
+     100% { width: ${y}%}
 `;
 
+export const BarContainer =  styled.div`
+    width: 80%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+`;
 
 export const BoxDataValue =  styled.div`
     display: flex;
@@ -15,12 +41,12 @@ export const BoxDataValue =  styled.div`
 `;
 
 export const ImageData = styled.img`
-    height: 45px;
+    height: 30px;
     margin-right: 15px;
 
 `;
 
-export const Bar = styled.div`
+export const Bar = styled.div<IBarContainerProps>`
 
     height: 6px;
     width: 80%;
@@ -28,14 +54,15 @@ export const Bar = styled.div`
 
     border-radius: 10px;
     box-shadow: 0 10px 10px -5px #000000ad;
+    
     div {
         height: 6px;
-        width: 50%; 
+        width: ${props => props.value}%; 
         border-radius: 10px;
 
-        background-color: var(--color-birches);
+         background-color: ${props => handleColorType(props.value, (props.maxValue || 100), (props.RiskMarge || 0))}; 
 
-        animation: ${animate} 2s;
+        animation: ${props => animate(props.value)} 2s;
     }
 `;
 
@@ -52,17 +79,12 @@ export const Title = styled.h2`
 `;
 
 export const Value = styled.h3`
-    font: 700 2.3rem archivo;
-
-    margin-right: 8px;
+    font: 700 2rem archivo;
+    color: var(--color-white);
+    margin-right: 5%;
 `;
 
-export const BarContainer =  styled.div`
-    display: flex;
-    width: 100%;
-    
-    align-items: baseline;
-`;
+
 
 
 

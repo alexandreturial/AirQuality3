@@ -4,7 +4,13 @@ import LineChart from '../LineChart/index';
 
 
 
-import './styles.css';
+import {
+  BoxData,
+  BoxChart,
+  BoxList,
+  BoxLineChart
+
+} from './styles';
 
 const data = {
   colors:[
@@ -151,19 +157,16 @@ const data3 = {
 
 const BoxDataList: React.FC = () => {
   return (
-    <div className="box-data">
+    <BoxData>
       <h2>Material Particulado:</h2>
       <h1>34%</h1>
       <small>compared last year</small>
-      <div className="box-chart">
+      <BoxChart>
         <LineChart
-          background="#1F1F4B"
-          shadow="#1F1F4B"
           data={data}
         ></LineChart>
-      </div>
-    <div className="box-chart-legend">
-      <ul className="box-data-list">
+      </BoxChart>
+      <BoxList>
         <li>
           <p>
             Material 1
@@ -171,13 +174,11 @@ const BoxDataList: React.FC = () => {
           <p>
             150
           </p>
-          <div className="box-line-chart">
-            <LineChart 
-              background="#090917" 
-              shadow="#000000ad" 
-              data={data1
-            }/>
-          </div>
+          <BoxLineChart>
+            <LineChart  
+              data={data1}
+            />
+          </BoxLineChart>
           
         </li>
         <li>
@@ -187,13 +188,11 @@ const BoxDataList: React.FC = () => {
           <p>
             150
           </p>
-          <div className="box-line-chart">
+          <BoxLineChart>
             <LineChart 
-              background="#090917" 
-              shadow="#000000ad" 
               data={data2}
             />
-          </div>
+          </BoxLineChart>
         </li>
         <li>
           <p>
@@ -202,17 +201,15 @@ const BoxDataList: React.FC = () => {
           <p>
             150
           </p>
-          <div className="box-line-chart">
+          <BoxLineChart >
             <LineChart 
-              background="#090917" 
-              shadow="#000000ad" 
               data={data3}
             />
-          </div>
+          </BoxLineChart>
         </li>
-      </ul>
-    </div>
-  </div>
+      </BoxList>
+    
+  </BoxData>
   );
 }
 

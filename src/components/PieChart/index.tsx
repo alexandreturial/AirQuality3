@@ -1,6 +1,6 @@
 
-import React, { PureComponent } from 'react';
-import { PieChart, Pie, Sector, Cell } from 'recharts';
+import React, { useState } from 'react';
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 
 
 const data = [
@@ -8,8 +8,8 @@ const data = [
     { name: 'Group B', value: 300 },
     { name: 'Group C', value: 300 },
     { name: 'Group D', value: 200 },
-    
 ];
+
 
 const renderActiveShape = (props: any) => {
     const RADIAN = Math.PI / 180;
@@ -19,10 +19,10 @@ const renderActiveShape = (props: any) => {
     } = props;
     const sin = Math.sin(-RADIAN * midAngle);
     const cos = Math.cos(-RADIAN * midAngle);
-    const sx = cx + (outerRadius + 10) * cos;
-    const sy = cy + (outerRadius + 10) * sin;
-    const mx = cx + (outerRadius + 30) * cos;
-    const my = cy + (outerRadius + 30) * sin;
+    const sx = cx + (outerRadius + 5) * cos;
+    const sy = cy + (outerRadius + 5) * sin;
+    const mx = cx + (outerRadius + 15) * cos;
+    const my = cy + (outerRadius + 15) * sin;
     const ex = mx + (cos >= 0 ? 1 : -1) * 22;
     const ey = my;
     const textAnchor = cos >= 0 ? 'start' : 'end';
@@ -30,10 +30,10 @@ const renderActiveShape = (props: any) => {
     return (
         <g>
             <text x={cx} y={cy} dy={8} fontSize={15} textAnchor="middle" fill="#FFF">
-                
+
                 {payload.name}
             </text>
-           
+
             <Sector
                 cx={cx}
                 cy={cy}
@@ -43,7 +43,7 @@ const renderActiveShape = (props: any) => {
                 endAngle={endAngle}
                 fill={fill}
                 cornerRadius={20}
-                
+
             />
             <Sector
                 cx={cx}
@@ -54,7 +54,7 @@ const renderActiveShape = (props: any) => {
                 outerRadius={outerRadius + 10}
                 fill={fill}
                 cornerRadius={20}
-                
+
             />
             <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
             <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
@@ -67,26 +67,17 @@ const renderActiveShape = (props: any) => {
 };
 
 
-export default class Example extends PureComponent {
-   
+const Piechart: React.FC = () => {
+    const [state, setState] = useState(0);
 
-    state = {
-        activeIndex: 0,
+    function onPieEnter(data: any, index: any) {
+        setState(index);
     };
 
-    onPieEnter = (data: any, index: any) => {
-        this.setState({
-            activeIndex: index,
-        });
-    };
+    return (
+        <ResponsiveContainer >
+            <PieChart >
 
-    render() {
-        return (
-            <>
-             
-            
-            <PieChart width={400} height={400} >
-                
                 <defs>
                     <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1.2">
                         <stop offset="15%" stopColor="#7517F8" stopOpacity={0.8} />
@@ -103,22 +94,18 @@ export default class Example extends PureComponent {
 
                 </defs>
 
-
-
                 <Pie
-                    activeIndex={this.state.activeIndex}
+                    activeIndex={state}
                     activeShape={renderActiveShape}
                     data={data}
                     cornerRadius={20}
-                    paddingAngle={5}
-                    cx={200}
-                    cy={200}
+                    paddingAngle={8}
                     blendStroke
                     innerRadius={60}
                     outerRadius={80}
                     fill="url(#colorUv)"
                     dataKey="value"
-                    onMouseEnter={this.onPieEnter}
+                    onMouseEnter={onPieEnter}
                 >
 
                     <Cell fill="url(#colorDv)" />
@@ -126,7 +113,9 @@ export default class Example extends PureComponent {
 
                 </Pie>
             </PieChart>
-            </>
-        );
-    }
+        </ResponsiveContainer>
+    );
+
 }
+
+export default Piechart;

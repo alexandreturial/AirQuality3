@@ -13,8 +13,6 @@ import {
 
 
 interface ILineChartComponentProps {
-  background: string;
-  shadow: string;
   data: {
     colors: {
       nameGradient: string;
@@ -31,10 +29,10 @@ interface ILineChartComponentProps {
 
 
 const LineChartComponent: React.FC<ILineChartComponentProps> = ({
-  background, shadow, data
+   data
 }) => {
   return (
-    <Container color={background} shadow={shadow}>
+    <Container>
       <ResponsiveContainer >
 
         <LineChart

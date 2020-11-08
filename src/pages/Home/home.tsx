@@ -14,10 +14,10 @@ const pages: React.FC = () => {
       <main className="home-main">
         <aside className="aside-data">
           <BoxData></BoxData>
-          <BoxResult></BoxResult>
+          {/* <BoxResult></BoxResult> */}
         </aside>
-        <div className="App-logo">
-          {/* <img src={ChartImg} alt="logo" /> */}
+        <div className="chart-box">
+          
           
           <MainChart></MainChart>
         </div>

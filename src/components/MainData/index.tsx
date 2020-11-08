@@ -4,30 +4,67 @@ import Piechart from '../PieChart/index';
 import BarChart from '../BarChart/index';
 import HistoryBarChart from '../History/barChart';
 
-import './styles.css';
+import {
+  MainBox,
+  LevelRisk,
+  AirComposition,
+  Title,
+  ElementList
+
+} from './styles';
+
+
+const data= [
+  {
+    name: "O3",
+    value: 33.5,
+    max: 60,
+    alert: 30
+  },
+  {
+    name: "O2",
+    value: 85,
+    max: 95,
+    alert: 88
+  },
+  {
+    name: "CO2",
+    value: 55,
+    max: 50,
+    alert: 20
+  },
+  {
+    name: "NH3",
+    value: 3.5,
+    max: 18,
+    alert: 8
+  },
+];
+
 
 const BoxDataList: React.FC = () => {
   return (
-    <div className="main-box">
-      <div className="main-box-chart">
-        <div className="level-risk">
-         <h2>
-         Níveis de risco
-         </h2>
-         <BarChart></BarChart>
-         <BarChart></BarChart>
-         <BarChart></BarChart>
-         
-         <HistoryBarChart></HistoryBarChart>
-        </div>
-        <div className="Air-composition">
-        <h2>
-         composição do ar
-         </h2>
-         <Piechart></Piechart>
-        </div>
-      </div>               
-  </div>
+    <MainBox>
+      <LevelRisk>
+        <Title>
+          Níveis de risco
+        </Title>
+        <ElementList>
+          {
+            data.map((indicator) => (
+              <BarChart value={ indicator.value} maxValue={indicator.max} RiskMarge={indicator.alert} name={indicator.name}/>
+            ))
+          }
+        </ElementList>
+        {/* <HistoryBarChart /> */}
+      </LevelRisk>
+      <AirComposition>
+        <Title>
+          composição do ar
+         </Title>
+        <Piechart></Piechart>
+      </AirComposition>
+    </MainBox>
   );
 }
 

@@ -1,7 +1,8 @@
 :root{
     font-size: 60%;
-     --color-background: #05050F;
-     --color-background-box:#1F1F4B;
+      --color-background: #05050F;
+      --color-background-box:#1F1F4B;
+     --color-background-box-secundary: #090917;
      --Birches: #01F1E3;
      --purple-blue: #5A5A89;
      --blueish-black: #14142B;
@@ -16,6 +17,7 @@
      --color-birches: #01F1E3;
      --color-black: #05050F;
      --color-white: white;
+     
 }
 *{
   margin: 0;

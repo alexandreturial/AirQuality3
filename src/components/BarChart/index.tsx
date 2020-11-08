@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+import element from '../../assets/images/icons/molecula1.svg';
+
 import { 
   Bar, 
   Title, 
@@ -8,18 +11,25 @@ import {
   BoxDataValue, 
   ImageData, 
   DataContent } from './styles';
-import element from '../../assets/images/icons/atom.svg';
 
+interface IBarChartProps{
+  name: string;
+  value: number;
+  RiskMarge?: number;
+  maxValue?: number;
+}
 
-const BarChart: React.FC = () => {
+const BarChart: React.FC<IBarChartProps> = ({
+  name, value, RiskMarge, maxValue
+}) => {
   return (
     <BoxDataValue>
       <ImageData src={element}/>
       <DataContent>
-        <Title>Ozonio</Title>
-        <BarContainer>
-          <Value>58</Value>
-          <Bar><div></div></Bar>
+        <Title>{name}</Title>
+        <BarContainer >
+          <Value>{value + '%'}</Value>
+          <Bar value={value} RiskMarge={RiskMarge} maxValue={maxValue} ><div></div></Bar>
         </BarContainer>
       </DataContent>
     </BoxDataValue>

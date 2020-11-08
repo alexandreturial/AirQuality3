@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-  BarChart, Bar, XAxis, YAxis, Tooltip, Legend,
+  BarChart, Bar, XAxis, YAxis
 } from 'recharts';
 
 const data = [
@@ -39,8 +39,8 @@ export default class Example extends PureComponent {
         }}
       >
         
-        <YAxis />
-        <XAxis dataKey="name" />
+        <YAxis stroke="#5A5A89" />
+        <XAxis dataKey="name" stroke="#5A5A89" />
         <Bar radius={3} dataKey="pv" fill="#4DFFDF" />
       </BarChart>
     );

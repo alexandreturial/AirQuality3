@@ -9,12 +9,8 @@
     
 }
 
-.App-logo{
+.chart-box{
     grid-area:chart;
-
-    display: flex;
-   
-    
     margin: 15px;
 }
 
@@ -28,10 +24,5 @@
     
    
 }
-
-#chartdiv {
-    width: 100%;
-    height: 400px;
-  }
 
 
