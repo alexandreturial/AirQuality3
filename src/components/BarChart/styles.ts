@@ -8,13 +8,13 @@ interface IBarContainerProps{
 }
 
 
-const handleColorType = (value:number, limit:number, RiskMarge:number) => {
-    if(value < (RiskMarge)){
-        return `var(--color-birches)`;
+const handleColorType = (value:number, limit:number, RiskMarge:number, colors:any) => {
+    if(value >= (limit)){
+        return colors.red;
     }else if(value >= (RiskMarge) && value < limit){
-        return `var(--color-yellow)`;
+        return colors.yellow;
     }else{
-        return `var(--color-red)`;
+        return colors.birches;
     }
 };
 
@@ -50,7 +50,7 @@ export const Bar = styled.div<IBarContainerProps>`
 
     height: 6px;
     width: 80%;
-    background-color: var(--blueish-black);
+    background-color: ${props => props.theme.colors.primary};
 
     border-radius: 10px;
     box-shadow: 0 10px 10px -5px #000000ad;
@@ -60,7 +60,7 @@ export const Bar = styled.div<IBarContainerProps>`
         width: ${props => props.value}%; 
         border-radius: 10px;
 
-         background-color: ${props => handleColorType(props.value, (props.maxValue || 100), (props.RiskMarge || 0))}; 
+         background-color: ${props => handleColorType(props.value, (props.maxValue || 100), (props.RiskMarge || 0), props.theme.colors)}; 
 
         animation: ${props => animate(props.value)} 2s;
     }
@@ -76,11 +76,12 @@ export const DataContent =  styled.div`
 export const Title = styled.h2`
     font: 500 2.1rem archivo;
     text-align:start;
+    color: ${props => props.theme.colors.white};
 `;
 
 export const Value = styled.h3`
     font: 700 2rem archivo;
-    color: var(--color-white);
+    color: ${props => props.theme.colors.white};
     margin-right: 5%;
 `;
 

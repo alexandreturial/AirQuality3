@@ -1,14 +1,25 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { TesteProvider } from './Hooks/testeData';
 
-import './assets/styles/global.css';
+import GlobalStyles from './styles/global';
 
 import Routes from './Routes';
 
+import { useTheme } from './Hooks/themes';
+import { useTeste } from './Hooks/testeData';
+
+
 function App() {
+
+  const {theme} = useTheme();
   return (
-    <div className="App">
-      <Routes/>
-    </div>
+      <ThemeProvider theme={theme}>
+         <TesteProvider >
+          <GlobalStyles/>
+          <Routes />
+        </TesteProvider>
+      </ThemeProvider>
   );
 }
 

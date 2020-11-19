@@ -2,7 +2,7 @@ import React from 'react';
 
 import LineChart from '../LineChart/index';
 
-
+import { useTeste } from '../../Hooks/testeData';
 
 import {
   BoxData,
@@ -156,9 +156,10 @@ const data3 = {
 
 
 const BoxDataList: React.FC = () => {
+  const { teste } = useTeste();
   return (
     <BoxData>
-      <h2>Material Particulado:</h2>
+      <h2>{teste.data}:</h2>
       <h1>34%</h1>
       <small>compared last year</small>
       <BoxChart>

@@ -1,14 +1,14 @@
 import React from 'react';
 
- import './styles.css';
+ import {BoxResultData} from './styles';
 
 const boxDataRseult: React.FC = () => {
   return (
-    <div className="box-result-data">
+    <BoxResultData>
         <h2>Title</h2>
         <h3>Total analysis</h3>
         <small>description</small>
-    </div>
+    </BoxResultData>
   );
 }
 

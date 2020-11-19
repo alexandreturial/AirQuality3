@@ -5,23 +5,25 @@ import BoxData from '../../components/BoxDataList/boxDataList';
 import BoxResult from '../../components/boxDataRseult/boxDataResult';
 import MainChart from '../../components/MainData/index';
 
-import './styles.css';
+import {
+  Container,
+  ChartBox,
+  Aside
+} from './styles';
 
 const pages: React.FC = () => {
   return (
     <> 
       <Header></Header>
-      <main className="home-main">
-        <aside className="aside-data">
+      <Container>
+        <Aside>
           <BoxData></BoxData>
           {/* <BoxResult></BoxResult> */}
-        </aside>
-        <div className="chart-box">
-          
-          
+        </Aside>
+        <ChartBox>
           <MainChart></MainChart>
-        </div>
-      </main>
+        </ChartBox>
+      </Container>
     
     </>
     

@@ -1,19 +1,39 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 
-import LogoImg from '../../assets/images/Logo.svg'
+import ToggleButton from '../ToogleButton';
 
-import './styles.css';
+import LogoImg from '../../assets/images/Logo.svg'
+import { useTheme } from '../../Hooks/themes';
+
+import {
+  Container,
+  Logo,
+  HeaderContent,
+  Options
+} from './styles';
 
 const Header: React.FC = () => {
+  const { toggleTheme, theme } = useTheme();
+
+  const [darkTheme, setDarkTheme] = useState(
+    () => theme.title === 'Dark' ? true : false
+  );
+
+  const handleChangeTheme = () =>{
+    setDarkTheme(!darkTheme);
+    toggleTheme();
+    
+  }
+
   return (
-    <header className="page-header">
-        <div className="logo">
+    <Container>
+        <Logo>
             <img src={LogoImg} alt="Logo"/>
             <strong>logo Name</strong>
-        </div>
-        <div className="header-content">
-            <ul className="options">
+        </Logo>
+        <HeaderContent>
+            <Options>
                 <li>
                   <Link to="/" className="link">
                     Home
@@ -29,9 +49,10 @@ const Header: React.FC = () => {
                     Analitics
                   </Link>
                 </li>
-            </ul>
-        </div>
-    </header>
+            </Options>
+            <ToggleButton checked={darkTheme} onChange={handleChangeTheme} />
+        </HeaderContent>
+    </Container>
   );
 }
 

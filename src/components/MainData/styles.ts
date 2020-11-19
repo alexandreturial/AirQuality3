@@ -4,7 +4,7 @@ export const MainBox = styled.div`
     width: 100%;
     height: 70vh;
     
-    background-color: var(--color-background-box);
+    background-color: ${props => props.theme.colors.tertiary};
 
     padding: 10px 15px;
     border-radius: 7px;
@@ -34,7 +34,7 @@ export const ElementList= styled.div`
         width: 10px;
     }
     ::-webkit-scrollbar-thumb{
-        background-color: var(--purple-blue);
+        background-color: ${props => props.theme.colors.purpleBlue};
         border-radius: 10px;
     }
     ::-webkit-scrollbar-track{
@@ -55,5 +55,6 @@ export const AirComposition = styled.div`
 
 export const Title = styled.h2`
     font: 500 2.5rem Archivo;
+    color: ${props => props.theme.colors.white};
 `;
 

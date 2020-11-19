@@ -24,7 +24,7 @@ const data= [
   {
     name: "O2",
     value: 85,
-    max: 95,
+    max: 94,
     alert: 88
   },
   {
@@ -52,7 +52,7 @@ const BoxDataList: React.FC = () => {
         <ElementList>
           {
             data.map((indicator) => (
-              <BarChart value={ indicator.value} maxValue={indicator.max} RiskMarge={indicator.alert} name={indicator.name}/>
+              <BarChart key={indicator.name} value={ indicator.value} maxValue={indicator.max} RiskMarge={indicator.alert} name={indicator.name}/>
             ))
           }
         </ElementList>

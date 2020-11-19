@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const BoxData = styled.div`
-    background-color: var(--color-background-box);
+    background-color: ${props => props.theme.colors.tertiary};
 
     padding: 0px 30px 10px;
     border-radius: 7px;
@@ -13,11 +13,11 @@ export const BoxData = styled.div`
     width: 80%;
 
     h3{
-        color: var(--color-white);
+        color: ${props => props.theme.colors.white};
     }
 
     h1{
-        color: var(--color-white);
+        color: ${props => props.theme.colors.white};
         font: 700 5rem Archivo;
         text-align: start;
         margin-top: 15px;
@@ -27,13 +27,13 @@ export const BoxData = styled.div`
     font: 500 2.5rem Archivo;
     text-align: start;
     margin-top: 20px;
-    color: var(--color-white);
+    color: ${props => props.theme.colors.white};
 }
 
 small{
     margin-top: 5px;
 
-    color: var(--purple-blue);
+    color: ${props => props.theme.colors.purpleBlue};
     font-size: 1.6rem;
     
     display: flex;
@@ -41,8 +41,8 @@ small{
 `;
 
 export const BoxChart = styled.div`
-    background: var(--color-background-box);
-    box-shadow: var(--color-background-box);
+    background: ${props => props.theme.colors.tertiary};
+    box-shadow: ${props => props.theme.colors.tertiary};
 
     display: flex;
     flex: 1;
@@ -70,21 +70,22 @@ export const BoxList = styled.ul`
         margin: 5px 0;
 
         list-style-type:none;
-        color: var(--color-white);
+        color:  ${props => props.theme.colors.white};
         font: 500 1.5rem Archivo;
     }
 
     li > p:first-child{
-        color: var(--color-white);
+        color: ${props => props.theme.colors.white};
     }
 
     li > p{
-        color: var(--purple-blue);
+        color: ${props => props.theme.colors.purpleBlue};
     }
 `;
 
 export const BoxLineChart = styled.div`
-    background: var(--color-background-box-secundary);
+
+    background: ${props => props.theme.colors.secundary};
     box-shadow: 6px 6px 10px -5px #000000ad;
 
     border-radius: 7px;
