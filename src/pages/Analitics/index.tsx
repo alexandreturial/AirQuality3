@@ -7,7 +7,6 @@ import Header from '../../components/Header/header';
 const Analitics: React.FC = () => {
   return (
      <>
-      <Header></Header>
       <div>Analitic</div>
      </>
   );

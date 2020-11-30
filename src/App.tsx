@@ -1,13 +1,12 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { TesteProvider } from './Hooks/testeData';
+import { DataProvider } from './Hooks/airData';
 
 import GlobalStyles from './styles/global';
 
-import Routes from './Routes';
+import Routes from './Routes/index';
 
 import { useTheme } from './Hooks/themes';
-import { useTeste } from './Hooks/testeData';
 
 
 function App() {
@@ -15,10 +14,10 @@ function App() {
   const {theme} = useTheme();
   return (
       <ThemeProvider theme={theme}>
-         <TesteProvider >
+         <DataProvider >
           <GlobalStyles/>
           <Routes />
-        </TesteProvider>
+        </DataProvider>
       </ThemeProvider>
   );
 }

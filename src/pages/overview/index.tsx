@@ -6,7 +6,7 @@ import Header from '../../components/Header/header';
 const overview: React.FC = () => {
   return (
      <>
-      <Header></Header>
+      
       <div>
         overview
       </div>

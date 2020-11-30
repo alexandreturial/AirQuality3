@@ -1,32 +1,28 @@
 import React from 'react';
 
-import Header from '../../components/Header/header';
 import BoxData from '../../components/BoxDataList/boxDataList';
-import BoxResult from '../../components/boxDataRseult/boxDataResult';
 import MainChart from '../../components/MainData/index';
 
+import  { lastDatas }  from '../../repositorie/Contollers';
+
 import {
-  Container,
   ChartBox,
   Aside
 } from './styles';
 
 const pages: React.FC = () => {
+  const data = lastDatas();
+  
   return (
-    <> 
-      <Header></Header>
-      <Container>
-        <Aside>
-          <BoxData></BoxData>
-          {/* <BoxResult></BoxResult> */}
-        </Aside>
-        <ChartBox>
-          <MainChart></MainChart>
-        </ChartBox>
-      </Container>
-    
+    <>
+      <Aside>
+        <BoxData></BoxData>
+      </Aside>
+      <ChartBox>
+        <MainChart data={data} ></MainChart>
+      </ChartBox>
     </>
-    
+
   );
 }
 

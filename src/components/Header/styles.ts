@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
     height: 8vh;
-
+    min-width: 730px;
     background-color: ${props => props.theme.colors.tertiary};
 
     display: flex;

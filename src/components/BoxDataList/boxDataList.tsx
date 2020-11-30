@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 
 import LineChart from '../LineChart/index';
 
-import { useTeste } from '../../Hooks/testeData';
+import { useData } from '../../Hooks/airData';
+
+import { historyMaterial } from '../../repositorie/Contollers';
 
 import {
   BoxData,
@@ -11,6 +13,7 @@ import {
   BoxLineChart
 
 } from './styles';
+import { unescapeLeadingUnderscores } from 'typescript';
 
 const data = {
   colors:[
@@ -156,11 +159,20 @@ const data3 = {
 
 
 const BoxDataList: React.FC = () => {
-  const { teste } = useTeste();
+  const { historyData } = useData();
+
+  const historyMaterils = useMemo(() =>{ 
+      return historyMaterial(historyData?.data.grupo || "");
+  },[historyMaterial, historyData]);
+
+ 
+ console.log(historyMaterils);
+
   return (
     <BoxData>
-      <h2>{teste.data}:</h2>
-      <h1>34%</h1>
+      
+      <h2>{historyData?.data.Name}:</h2>
+      <h1>{historyData?.data.percent.toFixed(2) }</h1>
       <small>compared last year</small>
       <BoxChart>
         <LineChart

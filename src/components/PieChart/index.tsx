@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
 import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 
-import { useTeste } from '../../Hooks/testeData';
+import { useData } from '../../Hooks/airData';
 
-const data = [
-    { name: 'Materiais Particulados', value: 400 },
-    { name: 'PTS', value: 300 },
-    { name: 'Fumaça', value: 300 },
-    { name: 'Partículas inaláveis', value: 200 },
-];
+import {
+    Text
 
+} from './styles';
+
+interface IPiechartProps{
+    data:{
+        Name: string;
+        value: number;
+    }[]
+}
 
 const renderActiveShape = (props: any) => {
     const RADIAN = Math.PI / 180;
     const {
         cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle,
-        fill, payload, percent, value,
+        fill, payload, percent,
     } = props;
     const sin = Math.sin(-RADIAN * midAngle);
     const cos = Math.cos(-RADIAN * midAngle);
@@ -56,25 +60,25 @@ const renderActiveShape = (props: any) => {
             />
             <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none" />
             <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} fontSize={15} fontFamily="Archivo" textAnchor={textAnchor} fill="#fff">{payload.name}</text>
-            <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} fontSize={15} fontFamily="Archivo" dy={18} textAnchor={textAnchor} fill="#fff">
+            <Text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} >{payload.Name}</Text>
+            <Text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey}  dy={18} textAnchor={textAnchor}>
                 {`( ${(percent * 100).toFixed(2)}%)`}
-            </text>
+            </Text>
         </g>
     );
 };
 
 
-const Piechart: React.FC = () => {
+const Piechart: React.FC<IPiechartProps> = ({data}) => {
     const [state, setState] = useState(0);
 
-    const { toggleTheme } = useTeste();
+    const { showHistory } = useData();
 
-    function onPieEnter(data: any, index: any) {
-        setState(index);
-    };
+    const ClickHistory = (data: any) => showHistory(data);
 
-    const testeClick = (data: any) => toggleTheme(data.name);
+    const onPieEnter = (data: any, index: any) => setState(index);
+
+    
     
 
     return (
@@ -95,6 +99,7 @@ const Piechart: React.FC = () => {
                         <stop offset="5%" stopColor='#02A4FF' stopOpacity={0.8} className="linearColor"/>
                         <stop offset="95%" stopColor="#7D40FF" stopOpacity={1} />
                     </linearGradient>
+                    
 
                 </defs>
                 
@@ -110,11 +115,11 @@ const Piechart: React.FC = () => {
                     fill="url(#colorUv)"
                     dataKey="value"
                     onMouseEnter={onPieEnter}
-                    onClick={testeClick}
+                    onClick={ClickHistory}
                 >
-
                     <Cell fill="url(#colorDv)" />
                     <Cell fill="url(#colorAv)" />
+                   
 
                 </Pie>
             </PieChart>
