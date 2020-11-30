@@ -28,3 +28,7 @@ declare module 'styled-components'{
         },    
     }
 }
+
+declare module "react/jsx-runtime" {
+    export default any;
+}
